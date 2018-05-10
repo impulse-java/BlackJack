@@ -30,6 +30,7 @@ class TitleScreen extends JFrame implements ActionListener {
       getContentPane().setBackground(null);
       setVisible(true);
       
+      // TODO: Logical error somewhere here. Causing NullPointerException
       label.setForeground(Color.black);
       label.setFont(new Font("Bodoni MT", Font.PLAIN, 24));
       label = new JLabel("Welcome to BlackJack!");
