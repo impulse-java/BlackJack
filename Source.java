@@ -20,6 +20,7 @@ class TitleScreen extends JFrame implements ActionListener {
     
     public JLabel label;
     public JLabel label2;
+    public JButton button;
     
     public TitleScreen() {
         
@@ -33,15 +34,21 @@ class TitleScreen extends JFrame implements ActionListener {
       label = new JLabel("Welcome to BlackJack!");
       label.setForeground(Color.black);
       label.setFont(new Font("Bodoni MT", Font.PLAIN, 24));
-      label.setLocation(306, 204);
+      label.setLocation(150, 20);
       label.setSize(300, 300);
-      getContentPane().add(this);
-      
+      getContentPane().add(label);
+              
       ImageIcon image = new ImageIcon("felt.jpg");
       label2 = new JLabel(image);
       label2.setLocation(0, 0);
       label2.setSize(image.getIconWidth(), image.getIconHeight());
       getContentPane().add(label2);
+      
+      button = new JButton("Let's Play!");
+      button.setLocation(150, 60);
+      button.setSize(100, 25);
+      getContentPane().add(button);
+      button.addActionListener(this);
     }
     
     public void actionPerformed(ActionEvent e) {
