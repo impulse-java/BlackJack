@@ -30,9 +30,10 @@ class TitleScreen extends JFrame implements ActionListener {
       getContentPane().setBackground(null);
       setVisible(true);
       
+      // Fixed TODO: Moved instantiation above attributes
+      label = new JLabel("Welcome to BlackJack!");
       label.setForeground(Color.black);
       label.setFont(new Font("Bodoni MT", Font.PLAIN, 24));
-      label = new JLabel("Welcome to BlackJack!");
       label.setLocation(306, 204);
       label.setSize(300, 300);
       getContentPane().add(this);
