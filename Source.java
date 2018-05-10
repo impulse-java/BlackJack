@@ -1,4 +1,4 @@
-// TODO: Set up JOptionPane for closing screen, implement card files
+// TODO: Fix button logical error on lines 45-49, set up JOptionPane for closing screen, implement card files
 
 package source;
 
