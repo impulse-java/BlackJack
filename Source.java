@@ -1,4 +1,4 @@
-// TODO: Adjust position of "label2" in "Welcome" class, set up JOptionPane for closing screen, implement card files
+// TODO: Set up JOptionPane for closing screen, implement card files
 
 package source;
 
@@ -30,13 +30,14 @@ class TitleScreen extends JFrame implements ActionListener {
       getContentPane().setBackground(null);
       setVisible(true);
       
+      // Set location of JLabel to just above middle of welcome screen
+      label = new JLabel("Welcome to BlackJack!");
       label.setForeground(Color.black);
       label.setFont(new Font("Bodoni MT", Font.PLAIN, 24));
-      label = new JLabel("Welcome to BlackJack!");
-      label.setLocation(306, 204);
+      label.setLocation(150, 20);
       label.setSize(300, 300);
-      getContentPane().add(this);
-      
+      getContentPane().add(label);
+              
       ImageIcon image = new ImageIcon("felt.jpg");
       label2 = new JLabel(image);
       label2.setLocation(0, 0);
