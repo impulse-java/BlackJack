@@ -1,4 +1,4 @@
-// Source code goes below
+// TODO: Adjust position of "label2" in "Welcome" class, set up JOptionPane for closing screen, implement card files
 
 package source;
 
