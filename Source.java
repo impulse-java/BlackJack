@@ -1,4 +1,4 @@
-// TODO: Fix button logical error on lines 45-49, set up JOptionPane for closing screen, implement card files
+// TODO: Set up JOptionPane for closing screen, implement card files, set up betting logic for "Game" class
 
 package source;
 
@@ -24,19 +24,20 @@ class TitleScreen extends JFrame implements ActionListener {
     
     public TitleScreen() {
         
-      setTitle("Welcome!");
-      setLayout(null);
-      setSize(612, 408);
-      setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-      getContentPane().setBackground(null);
-      setVisible(true);
+      
       
       label = new JLabel("Welcome to BlackJack!");
       label.setForeground(Color.black);
       label.setFont(new Font("Bodoni MT", Font.PLAIN, 24));
-      label.setLocation(150, 20);
+      label.setLocation(175, 20);
       label.setSize(300, 300);
       getContentPane().add(label);
+      
+      button = new JButton("Let's Play!");
+      button.setLocation(250, 224);
+      button.setSize(100, 25);
+      button.addActionListener(this);
+      getContentPane().add(button);
               
       ImageIcon image = new ImageIcon("felt.jpg");
       label2 = new JLabel(image);
@@ -44,22 +45,38 @@ class TitleScreen extends JFrame implements ActionListener {
       label2.setSize(image.getIconWidth(), image.getIconHeight());
       getContentPane().add(label2);
       
-      button = new JButton("Let's Play!");
-      button.setLocation(150, 60);
-      button.setSize(100, 25);
-      getContentPane().add(button);
-      button.addActionListener(this);
+      setTitle("Welcome!");
+      setLayout(null);
+      setSize(612, 408);
+      setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+      getContentPane().setBackground(null);
+      setVisible(true);
     }
     
     public void actionPerformed(ActionEvent e) {
-        
+        if(e.getSource() == button) {
+            Game gamePortal = new Game();
+        }
     }
 }
 
 class Game extends JFrame implements ActionListener {
     
+    public JLabel label;
+    
     public Game() {
-        
+      ImageIcon image = new ImageIcon("felt.jpg");
+      label = new JLabel(image);
+      label.setLocation(0, 0);
+      label.setSize(image.getIconWidth(), image.getIconHeight());
+      getContentPane().add(label);  
+      
+      setTitle("BlackJack");
+      setLayout(null);
+      setSize(612, 408);
+      setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+      getContentPane().setBackground(null);
+      setVisible(true);
     }
     
     public void actionPerformed(ActionEvent e) {
