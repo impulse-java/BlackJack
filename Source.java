@@ -1,4 +1,4 @@
-// TODO: Set up JOptionPane for closing screen, implement card files, set up betting logic for "Game" class
+// TODO: Set up JOptionPane for closing screen, implement card files, set up betting logic for "Game" class, set up "Score" category in "Game" class, setup final screen
 
 package source;
 
@@ -23,8 +23,6 @@ class TitleScreen extends JFrame implements ActionListener {
     public JButton button;
     
     public TitleScreen() {
-        
-      
       
       label = new JLabel("Welcome to BlackJack!");
       label.setForeground(Color.black);
