@@ -62,9 +62,17 @@ class TitleScreen extends JFrame implements ActionListener {
 
 class Game extends JFrame implements ActionListener {
     
-    public JLabel label;
+    public JLabel label, label2, label3, label4;
+    public JButton button;
+    public int score;
     
     public Game() {
+      button = new JButton("Leave Table");
+      button.setLocation(465, 10);
+      button.setSize(125, 25);
+      button.addActionListener(this);
+      getContentPane().add(button);  
+      
       ImageIcon image = new ImageIcon("felt.jpg");
       label = new JLabel(image);
       label.setLocation(0, 0);
@@ -80,7 +88,9 @@ class Game extends JFrame implements ActionListener {
     }
     
     public void actionPerformed(ActionEvent e) {
-        
+        if(e.getSource() == button) {
+            EndScreen scoreTable = new EndScreen();
+        }
     }
 }
 
