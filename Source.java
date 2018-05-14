@@ -23,6 +23,8 @@ class TitleScreen extends JFrame implements ActionListener {
     public JButton button;
     
     public TitleScreen() {
+        
+      
       
       label = new JLabel("Welcome to BlackJack!");
       label.setForeground(Color.black);
@@ -61,7 +63,7 @@ class TitleScreen extends JFrame implements ActionListener {
 class Game extends JFrame implements ActionListener {
     
     public JLabel label, label2, label3, label4;
-    public JButton button;
+    public JButton button, button2, button3;
     public int score;
     
     public Game() {
@@ -70,6 +72,18 @@ class Game extends JFrame implements ActionListener {
       button.setSize(125, 25);
       button.addActionListener(this);
       getContentPane().add(button);  
+      
+      button2 = new JButton("Return");
+      button2.setLocation(465, 45);
+      button2.setSize(125, 25);
+      button2.addActionListener(this);
+      getContentPane().add(button2); 
+      
+      button3 = new JButton("Deal");
+      button3.setLocation(10, 10);
+      button3.setSize(125, 25);
+      button3.addActionListener(this);
+      getContentPane().add(button3); 
       
       ImageIcon image = new ImageIcon("felt.jpg");
       label = new JLabel(image);
@@ -88,6 +102,9 @@ class Game extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == button) {
             EndScreen scoreTable = new EndScreen();
+        }
+        if(e.getSource() == button2) {
+            super.dispose();
         }
     }
 }
