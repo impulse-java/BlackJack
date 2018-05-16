@@ -1,4 +1,4 @@
-// TODO: Set up JOptionPane for closing screen, set up betting logic for "Game" class, set up "Score" category in "Game" class
+// TODO: Set up "Score" category in "Game" class, finish up betting logic in "Game" class, integrate cards
 
 package source;
 
@@ -116,7 +116,8 @@ class Game extends JFrame implements ActionListener {
     public JButton lt;
     public JButton rtn;
     public JButton deal;
-    public int score;
+    public static int tempScore = 5256;
+    public static int userScore = 0;
     
     public Game() {
       // Main constructor, all logic for running the game will be here
@@ -167,53 +168,54 @@ class EndScreen extends JFrame implements ActionListener {
     
     public JLabel nameLabel;
     public JLabel bgLabel;
-    public JLabel label2;
-    public JButton button;
+    public JLabel hsLabel;
     public JTextField eName;
     public JLabel hs1;
-    public JLabel hs2;
-    public JLabel hs3;
+    public JButton enter;
+    public JButton exit;
     public String temp1 = "AAA";
-    public String temp2 = "BBB";
-    public String temp3 = "CCC";
     
     public EndScreen() {
       // End Screen constructor, almost done as well, just need to have names written to file.
       
+      hsLabel = new JLabel("HIGH SCORE: ");
+      hsLabel.setForeground(Color.black);
+      hsLabel.setFont(new Font("Bodoni MT", Font.PLAIN, 24));
+      hsLabel.setLocation(220, 20);
+      hsLabel.setSize(300, 300);
+      getContentPane().add(hsLabel);
+      
       nameLabel = new JLabel("Enter your name: ");
       nameLabel.setForeground(Color.black);
       nameLabel.setFont(new Font("Bodoni MT", Font.PLAIN, 24));
-      nameLabel.setLocation(220, 20);
+      nameLabel.setLocation(220, -128);
       nameLabel.setSize(300, 300);
       getContentPane().add(nameLabel);
       
-      label2 = new JLabel("HIGH SCORES: ");
-      label2.setForeground(Color.black);
-      label2.setFont(new Font("Bodoni MT", Font.PLAIN, 24));
-      label2.setLocation(220, -128);
-      label2.setSize(300, 300);
-      getContentPane().add(label2);
+      hs1 = new JLabel(temp1 + " - " + Game.tempScore);
+      hs1.setForeground(Color.black);
+      hs1.setFont(new Font("Bodoni MT", Font.PLAIN, 24));
+      hs1.setLocation(240, 60);
+      hs1.setSize(300, 300);
+      getContentPane().add(hs1);
       
       eName = new JTextField(120);
-      eName.setLocation(250, 50);
+      eName.setLocation(220, 40);
       eName.setText("");
       eName.setSize(120, 20);
       getContentPane().add(eName);
       
-      hs1.setLocation(12,75);
-      hs1.setText("");
-      hs1.setSize(120, 20);
-      getContentPane().add(hs1);
+      enter = new JButton("Enter");
+      enter.setLocation(350, 40);
+      enter.setSize(85, 21);
+      enter.addActionListener(this);
+      getContentPane().add(enter); 
       
-      hs2.setLocation(12,75);
-      hs2.setText("");
-      hs2.setSize(120, 20);
-      getContentPane().add(hs2);
-      
-      hs3.setLocation(12,75);
-      hs3.setText("");
-      hs3.setSize(120, 20);
-      getContentPane().add(hs3);
+      exit = new JButton("Exit");
+      exit.setLocation(505, 338);
+      exit.setSize(85, 21);
+      exit.addActionListener(this);
+      getContentPane().add(exit); 
       
       ImageIcon image = new ImageIcon("felt.jpg");
       bgLabel = new JLabel(image);
@@ -229,7 +231,21 @@ class EndScreen extends JFrame implements ActionListener {
       setVisible(true);
     }
     public void actionPerformed(ActionEvent e) {
-        
+        if(e.getSource() == enter) {
+            String tempStr = eName.getText();
+            if(Game.userScore > Game.tempScore) {
+                hs1.setText(tempStr + " - " + Game.userScore);
+                JOptionPane.showMessageDialog(null, "You have the new high-score!");
+                return;
+            }
+            else {
+                JOptionPane.showMessageDialog(null, "You didn't beat the new high-score... ");
+            }
+        }
+        if(e.getSource() == exit) {
+            JOptionPane.showMessageDialog(null, "Your scores will not be saved...");
+            System.exit(0);
+        }
     }
 }
 
@@ -240,4 +256,3 @@ public class Source {
     }
     
 }
-
