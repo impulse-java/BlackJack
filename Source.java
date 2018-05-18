@@ -71,6 +71,8 @@ class Files {
        
    }
    
+   
+    
 }
 
 class TitleScreen extends JFrame implements ActionListener {
@@ -113,7 +115,9 @@ class TitleScreen extends JFrame implements ActionListener {
         if(e.getSource() == lp) {
             Game gamePortal = new Game();
             // Instantiates "Game" class that runs the code in the main class
-        }
+        if(e.getSource() == deal) {
+           
+            }
     }
 }
 
@@ -175,6 +179,10 @@ class Game extends JFrame implements ActionListener {
         if(e.getSource() == rtn) {
             super.dispose();
         }
+       if(e.getSource() == deal){
+            int random = (int)(Math.random()*52)
+            arr[random] =   
+       }
     }
 }
 
