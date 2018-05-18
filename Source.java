@@ -1,4 +1,4 @@
-// TODO: Set up "Score" category in "Game" class, finish up betting logic in "Game" class, integrate cards into "Game" class
+// TODO: Set up "Score" category in "Game" class, finish up betting logic in "Game" class, assign values to cards and make dealing function
 
 package source;
 
@@ -10,69 +10,66 @@ import java.awt.event.*;
 
 class Files {
    
-   // Club Cards
-   public static ImageIcon imageAC = new ImageIcon("AC.jpg");
-   public static ImageIcon image2C = new ImageIcon("2C.jpg");
-   public static ImageIcon image3C = new ImageIcon("3C.jpg");
-   public static ImageIcon image4C = new ImageIcon("4C.jpg");
-   public static ImageIcon image5C = new ImageIcon("5C.jpg");
-   public static ImageIcon image6C = new ImageIcon("6C.jpg");
-   public static ImageIcon image7C = new ImageIcon("7C.jpg");
-   public static ImageIcon image8C = new ImageIcon("8C.jpg");
-   public static ImageIcon image9C = new ImageIcon("9C.jpg");
-   public static ImageIcon image10C = new ImageIcon("10C.jpg");
-   public static ImageIcon imageJC = new ImageIcon("JC.jpg");
-   public static ImageIcon imageQC = new ImageIcon("QC.jpg");
-   public static ImageIcon imageKC = new ImageIcon("KC.jpg");
+   int[] cValue = new int[52];
+   ImageIcon[] arr = new ImageIcon[53];
    
-   // Diamond Cards
-   public static ImageIcon imageAD = new ImageIcon("AD.jpg");
-   public static ImageIcon image2D = new ImageIcon("2D.jpg");
-   public static ImageIcon image3D = new ImageIcon("3D.jpg");
-   public static ImageIcon image4D = new ImageIcon("4D.jpg");
-   public static ImageIcon image5D = new ImageIcon("5D.jpg");
-   public static ImageIcon image6D = new ImageIcon("6D.jpg");
-   public static ImageIcon image7D = new ImageIcon("7D.jpg");
-   public static ImageIcon image8D = new ImageIcon("8D.jpg");
-   public static ImageIcon image9D = new ImageIcon("9D.jpg");
-   public static ImageIcon image10D = new ImageIcon("10D.jpg");
-   public static ImageIcon imageJD = new ImageIcon("JD.jpg");
-   public static ImageIcon imageQD = new ImageIcon("QD.jpg");
-   public static ImageIcon imageKD = new ImageIcon("KD.jpg");
-   
-   // Heart Cards
-   public static ImageIcon imageAH = new ImageIcon("AH.jpg");
-   public static ImageIcon image2H = new ImageIcon("2H.jpg");
-   public static ImageIcon image3H = new ImageIcon("3H.jpg");
-   public static ImageIcon image4H = new ImageIcon("4H.jpg");
-   public static ImageIcon image5H = new ImageIcon("5H.jpg");
-   public static ImageIcon image6H = new ImageIcon("6H.jpg");
-   public static ImageIcon image7H = new ImageIcon("7H.jpg");
-   public static ImageIcon image8H = new ImageIcon("8H.jpg");
-   public static ImageIcon image9H = new ImageIcon("9H.jpg");
-   public static ImageIcon image10H = new ImageIcon("10H.jpg");
-   public static ImageIcon imageJH = new ImageIcon("JH.jpg");
-   public static ImageIcon imageQH = new ImageIcon("QH.jpg");
-   public static ImageIcon imageKH = new ImageIcon("KH.jpg");
-   
-   // Ace Cards
-   public static ImageIcon imageAS = new ImageIcon("AS.jpg");
-   public static ImageIcon image2S = new ImageIcon("2S.jpg");
-   public static ImageIcon image3S = new ImageIcon("3S.jpg");
-   public static ImageIcon image4S = new ImageIcon("4S.jpg");
-   public static ImageIcon image5S = new ImageIcon("5S.jpg");
-   public static ImageIcon image6S = new ImageIcon("6S.jpg");
-   public static ImageIcon image7S = new ImageIcon("7S.jpg");
-   public static ImageIcon image8S = new ImageIcon("8S.jpg");
-   public static ImageIcon image9S = new ImageIcon("9S.jpg");
-   public static ImageIcon image10S = new ImageIcon("10S.jpg");
-   public static ImageIcon imageJS = new ImageIcon("JS.jpg");
-   public static ImageIcon imageQS = new ImageIcon("QS.jpg");
-   public static ImageIcon imageKS = new ImageIcon("KS.jpg");
-   
-   // Back and Display cards
-   ImageIcon imageback = new ImageIcon("Back.jpg");
-   ImageIcon imagedisplay = new ImageIcon("Display.jpg");
+   public Files() {
+       
+       arr[0] = new ImageIcon("Back.jpg");
+       arr[1] = new ImageIcon("AS.jpg");
+       arr[2] = new ImageIcon("2S.jpg");
+       arr[3] = new ImageIcon("3S.jpg");
+       arr[4] = new ImageIcon("4S.jpg");
+       arr[5] = new ImageIcon("5S.jpg");
+       arr[6] = new ImageIcon("6S.jpg");
+       arr[7] = new ImageIcon("7S.jpg");
+       arr[8] = new ImageIcon("8S.jpg");
+       arr[9] = new ImageIcon("9S.jpg");
+       arr[10] = new ImageIcon("10S.jpg");
+       arr[11] = new ImageIcon("JS.jpg");
+       arr[12] = new ImageIcon("QS.jpg");
+       arr[13] = new ImageIcon("kS.jpg");
+       arr[14] = new ImageIcon("AC.jpg");
+       arr[15] = new ImageIcon("2C.jpg");
+       arr[16] = new ImageIcon("3C.jpg");
+       arr[17] = new ImageIcon("4C.jpg");
+       arr[18] = new ImageIcon("5C.jpg");
+       arr[19] = new ImageIcon("6C.jpg");
+       arr[20] = new ImageIcon("7C.jpg");
+       arr[21] = new ImageIcon("8C.jpg");
+       arr[22] = new ImageIcon("9C.jpg");
+       arr[23] = new ImageIcon("10C.jpg");
+       arr[24] = new ImageIcon("JC.jpg");
+       arr[25] = new ImageIcon("QC.jpg");
+       arr[26] = new ImageIcon("KC.jpg");
+       arr[27] = new ImageIcon("AD.jpg");
+       arr[28] = new ImageIcon("2D.jpg");
+       arr[29] = new ImageIcon("3D.jpg");
+       arr[30] = new ImageIcon("4D.jpg");
+       arr[31] = new ImageIcon("5D.jpg");
+       arr[32] = new ImageIcon("6D.jpg");
+       arr[33] = new ImageIcon("7D.jpg");
+       arr[34] = new ImageIcon("8D.jpg");
+       arr[35] = new ImageIcon("9D.jpg");
+       arr[36] = new ImageIcon("10D.jpg");
+       arr[37] = new ImageIcon("JD.jpg");
+       arr[38] = new ImageIcon("QD.jpg");
+       arr[39] = new ImageIcon("KD.jpg");
+       arr[40] = new ImageIcon("AH.jpg");
+       arr[41] = new ImageIcon("2H.jpg");
+       arr[42] = new ImageIcon("3H.jpg");
+       arr[43] = new ImageIcon("4H.jpg");
+       arr[44] = new ImageIcon("5H.jpg");
+       arr[45] = new ImageIcon("6H.jpg");
+       arr[46] = new ImageIcon("7H.jpg");
+       arr[47] = new ImageIcon("8H.jpg");
+       arr[48] = new ImageIcon("9H.jpg");
+       arr[49] = new ImageIcon("10H.jpg");
+       arr[50] = new ImageIcon("JH.jpg");
+       arr[51] = new ImageIcon("QH.jpg");
+       arr[52] = new ImageIcon("KH.jpg");
+       
+   }
    
 }
 
@@ -126,6 +123,7 @@ class Game extends JFrame implements ActionListener {
     public JButton lt;
     public JButton rtn;
     public JButton deal;
+    public JTextField betField;
     public static int tempScore = 5256;
     public static int userScore = 0;
     
@@ -149,6 +147,12 @@ class Game extends JFrame implements ActionListener {
       deal.setSize(125, 25);
       deal.addActionListener(this);
       getContentPane().add(deal); 
+      
+      betField = new JTextField(120);
+      betField.setLocation(220, 40);
+      betField.setText("");
+      betField.setSize(120, 20);
+      getContentPane().add(betField);
       
       ImageIcon image = new ImageIcon("felt.jpg");
       bgLabel = new JLabel(image);
