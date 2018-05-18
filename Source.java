@@ -1,4 +1,4 @@
-// TODO: Set up "Score" category in "Game" class, finish up betting logic in "Game" class, assign values to cards and make dealing function
+// TODO: Finish up betting logic in "Game" class, assign values to cards and make dealing function
 
 package source;
 
@@ -71,8 +71,6 @@ class Files {
        
    }
    
-   
-    
 }
 
 class TitleScreen extends JFrame implements ActionListener {
@@ -115,21 +113,21 @@ class TitleScreen extends JFrame implements ActionListener {
         if(e.getSource() == lp) {
             Game gamePortal = new Game();
             // Instantiates "Game" class that runs the code in the main class
-        if(e.getSource() == deal) {
-           
-            }
+        }
     }
 }
 
 class Game extends JFrame implements ActionListener {
     
     public JLabel bgLabel;
+    public JLabel balanceView;
     public JButton lt;
     public JButton rtn;
     public JButton deal;
+    public JButton bet;
     public JTextField betField;
     public static int tempScore = 5256;
-    public static int userScore = 0;
+    public static int userScore = 1500;
     
     public Game() {
       // Main constructor, all logic for running the game will be here
@@ -147,16 +145,29 @@ class Game extends JFrame implements ActionListener {
       getContentPane().add(rtn); 
       
       deal = new JButton("Deal");
-      deal.setLocation(10, 10);
+      deal.setLocation(465, 80);
       deal.setSize(125, 25);
       deal.addActionListener(this);
       getContentPane().add(deal); 
       
+      bet = new JButton("Bet Amount");
+      bet.setLocation(145, 10);
+      bet.setSize(110, 21);
+      bet.addActionListener(this);
+      getContentPane().add(bet); 
+      
       betField = new JTextField(120);
-      betField.setLocation(220, 40);
-      betField.setText("");
-      betField.setSize(120, 20);
+      betField.setLocation(10, 10);
+      betField.setText("0");
+      betField.setSize(124, 20);
       getContentPane().add(betField);
+      
+      balanceView = new JLabel("Balance: " + userScore);
+      balanceView.setForeground(Color.white);
+      balanceView.setFont(new Font("Bodoni MT", Font.PLAIN, 24));
+      balanceView.setLocation(10, -90);
+      balanceView.setSize(300, 300);
+      getContentPane().add(balanceView);
       
       ImageIcon image = new ImageIcon("felt.jpg");
       bgLabel = new JLabel(image);
@@ -179,10 +190,9 @@ class Game extends JFrame implements ActionListener {
         if(e.getSource() == rtn) {
             super.dispose();
         }
-       if(e.getSource() == deal){
-            int random = (int)(Math.random()*52)
-            arr[random] =   
-       }
+        if(e.getSource() ==  bet) {
+            String betAmt = betField.getText();
+        }
     }
 }
 
